@@ -1,22 +1,15 @@
 # 3. Make class with one method
 class Calc:
-    a = 10
-
     """
     Make class with one method "add_nums" with 3 parameters, which returns sum of these parameters.
     Note: this method should not take instance as first parameter.
     """
-
-    def __init__(self):
-        pass
-
-    @classmethod
-    def add_nums(cls, b, c):
-        return cls.a + b + c
+    @staticmethod
+    def add_nums(a, b, c):
+        return a + b + c
 
 
-calc = Calc()
-print(f'Sum = {Calc.add_nums(5, 6)}')
+print(f'Sum = {Calc.add_nums(10, 5, 6)}')
 
 
 
