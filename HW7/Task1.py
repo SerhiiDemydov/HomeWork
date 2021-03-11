@@ -10,4 +10,4 @@ print(sub)
 
 with open('task1_2.txt', 'w') as file:
     for item in sub.values():
-        file.write(f'{item}\n')
+        file.write(f'{item} ')
