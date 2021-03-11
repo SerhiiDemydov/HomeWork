@@ -302,7 +302,7 @@ if __name__ == '__main__':
         tom.handling()
     pests.eat()
     print(f'{len(garden.vegetables)} tomatoes in garden')
-    print(f'{len(garden.fruits)} tomatoes in garden')
+    print(f'{len(garden.fruits)} apples in garden')
     tom.harvest()
 
 
