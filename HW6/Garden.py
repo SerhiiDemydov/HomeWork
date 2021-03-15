@@ -259,30 +259,30 @@ class LivingPests(Pests):
         if self.quantity == 0:
             print("There are not have pests in the garden")
         else:
-            if random.choice(['vegetables', 'fruits']) == 'vegetables':
-                if garden.vegetables[0].state > 1:
-                    if len(garden.vegetables) - self.quantity <= 0:
-                        print(f"Pests have eaten all the {garden.vegetables[0].__class__.__name__}")
-                        garden.vegetables.clear()
-                    else:
-                        print(
-                            f"Pests have eaten {self.quantity} {garden.vegetables[0].__class__.__name__} and {len(garden.vegetables) - self.quantity} {garden.vegetables[0].__class__.__name__} remained.")
-                        for i in range(0,self.quantity):
-                            garden.vegetables.pop()
+            plant_type = random.choice(['vegetables', 'fruits'])
+            if getattr(garden, plant_type)[0].state > 1:
+                if len(getattr(garden, plant_type)) - self.quantity <= 0:
+                    print(f"Pests have eaten all the {getattr(garden, plant_type)[0].__class__.__name__}")
+                    getattr(garden, plant_type).clear()
                 else:
-                    print(f'Vegetables is not ripe')
+                    print(
+                        f"Pests have eaten {self.quantity} {getattr(garden, plant_type)[0].__class__.__name__} and {len(getattr(garden, plant_type)) - self.quantity} {getattr(garden, plant_type)[0].__class__.__name__} remained.")
+                    for i in range(0, self.quantity):
+                        getattr(garden, plant_type).pop()
             else:
-                if garden.fruits[0].state > 1:
-                    if len(garden.fruits) - self.quantity <= 0:
-                        print(f"Pests have eaten all the {garden.fruits[0].__class__.__name__}")
-                        garden.fruits.clear()
-                    else:
-                        print(
-                            f"Pests have eaten {self.quantity} {garden.fruits[0].__class__.__name__} and {len(garden.fruits) - self.quantity} {garden.fruits[0].__class__.__name__}  remained.")
-                        for i in range(self.quantity):
-                            garden.fruits.pop()
-                else:
-                    print(f'Fruits is not ripe')
+                print(f'Vegetables is not ripe')
+            # else:
+            #     if garden.fruits[0].state > 1:
+            #         if len(garden.fruits) - self.quantity <= 0:
+            #             print(f"Pests have eaten all the {garden.fruits[0].__class__.__name__}")
+            #             garden.fruits.clear()
+            #         else:
+            #             print(
+            #                 f"Pests have eaten {self.quantity} {garden.fruits[0].__class__.__name__} and {len(garden.fruits) - self.quantity} {garden.fruits[0].__class__.__name__}  remained.")
+            #             for i in range(self.quantity):
+            #                 garden.fruits.pop()
+            #     else:
+            #         print(f'Fruits is not ripe')
 
 
 if __name__ == '__main__':
