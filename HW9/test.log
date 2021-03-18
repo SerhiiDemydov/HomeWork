@@ -1,0 +1,36 @@
+2021-03-18 12:16:36,657 - root -INFO - Beginning of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:40,688 - root -INFO - Entered first value: asd - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:40,688 - root -ERROR - ValueError in first value - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+Traceback (most recent call last):
+  File "/home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py", line 15, in values
+    x = float(val)
+ValueError: could not convert string to float: 'asd'
+2021-03-18 12:16:43,758 - root -INFO - Entered first value: 2 - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:45,442 - root -INFO - Entered action: + - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:45,442 - root -INFO - Check the action is /^ or not - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:45,446 - root -INFO - Check action is not /^ - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:48,597 - root -INFO - Entered second value: gs - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:48,597 - root -ERROR - ValueError in second value - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+Traceback (most recent call last):
+  File "/home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py", line 15, in values
+    x = float(val)
+ValueError: could not convert string to float: 'gs'
+2021-03-18 12:16:50,538 - root -INFO - Entered second value: 65 - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:50,538 - root -INFO - The sum of two values - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:16:52,390 - root -INFO - End of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:10,941 - root -INFO - Beginning of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:13,574 - root -INFO - Entered first value: 352w5432 - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:13,574 - root -ERROR - ValueError in first value - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+Traceback (most recent call last):
+  File "/home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py", line 15, in values
+    x = float(val)
+ValueError: could not convert string to float: '352w5432'
+2021-03-18 12:18:15,068 - root -INFO - Entered first value: 23545235 - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:18,064 - root -INFO - Entered action: - - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:18,064 - root -INFO - Check the action is /^ or not - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:18,065 - root -INFO - Check action is not /^ - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:19,699 - root -INFO - Entered second value: 543265234 - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:19,700 - root -INFO - Difference of two values - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:18:22,486 - root -INFO - End of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:48:35,965 - root -INFO - Beginning of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
+2021-03-18 12:48:39,148 - root -INFO - End of work - /home/serhii/PycharmProjects/Cursor/HW9/venv/Task1.py
