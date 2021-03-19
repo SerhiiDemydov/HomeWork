@@ -138,20 +138,24 @@ def animal_generator():
 
 
 if __name__ == "__main__":
+    step = 0
     # Create forest
     forest = Forest()
     nature = animal_generator()
     # Create few animals
-    for i in range(10):
+    for i in range(random.randrange(6, 10, 1)):
         animal = next(nature)
         print(animal.__dict__)
         # Add animals to forest
         forest.add_animal(animal)
-    print([{x.__class__.__name__: x.__dict__} for x in list(forest.animals.values())])
     # Iterate throw forest and force animals to eat until no predators left
     while True:
+        step += 1
+        print(f'\n\n-------------------STEP-{step}-------------------\n')
+        for x in list(forest.animals.values()):
+            print(f'{x.__class__.__name__} --> {x.__dict__ }')
+        print('\n')
         if not forest.any_predator_left():
             break
         random.choice(list(forest.animals.values())).eat(forest)
-        print([{x.__class__.__name__: x.__dict__} for x in list(forest.animals.values())])
         time.sleep(1)
