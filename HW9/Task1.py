@@ -15,7 +15,7 @@ def values(name):
             x = float(val)
         except (ValueError,):
             logging.error(f'ValueError in {name} value', exc_info=True)
-            print("First values is not decimal")
+            print(f"{name} values is not decimal")
             continue
         return x
 
@@ -58,8 +58,13 @@ try:
             logging.info("Multiplying two values")
             print(f'{value_1} * {value_2} = {value_1 * value_2}\n')
         elif str_2 == "^":
-            logging.info("Degree of value")
-            print(f'{value_1} ^ {value_2} = {value_1 ** value_2}\n')
+            try:
+                logging.info("Degree of value")
+                print(f'{value_1} ^ {value_2} = {value_1 ** value_2}\n')
+            except(ZeroDivisionError, ):
+                print('Division by zero error\n')
+                logging.error(f'Division by zero error', exc_info=True)
+                continue
         elif str_2 == "/^":
             try:
                 logging.info("Square root of value")

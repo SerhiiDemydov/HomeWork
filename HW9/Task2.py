@@ -78,15 +78,15 @@ class VacuumCleanerRobot:
         if self.currently_water <= 15:
             if self.currently_water <= 0:
                 raise WaterZero("The water has run out")
-            raise LowWater("")
+            raise LowWater("The water is almost over")
         print(f'Washes with water level = {self.currently_water}%')
 
     def __vacuum_cleaner(self):
         self.currently_fullness += random.randrange(5, 9, 1)
         if self.currently_fullness >= 70:
-            if self.currently_fullness >= 98:
+            if self.currently_fullness >= self.max_fullness:
                 raise Full("The trash bin is full")
-            raise AlmostFull("The water is almost over")
+            raise AlmostFull("The trash can is almost full")
         print(f'Cleans with fullness level = {self.currently_fullness}%')
 
 
