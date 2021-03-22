@@ -128,6 +128,18 @@ class Forest:
         print(f'Only {x.__class__.__name__} live in forest')
         return False
 
+    def __iter__(self):
+        self.num = 0
+        self.animal_item = list(self.animals.values())
+        return self
+
+    def __next__(self):
+        self.num += 1
+        if self.num <= len(self.animal_item):
+            return self.animal_item[self.num - 1]
+        else:
+            raise StopIteration
+
 
 def animal_generator():
     while True:
@@ -152,8 +164,8 @@ if __name__ == "__main__":
     while True:
         step += 1
         print(f'\n\n-------------------STEP-{step}-------------------\n')
-        for x in list(forest.animals.values()):
-            print(f'{x.__class__.__name__} --> {x.__dict__ }')
+        for animal in forest:
+            print(f'{forest.num}. {animal.__class__.__name__} --> {animal.__dict__}')
         print('\n')
         if not forest.any_predator_left():
             break
