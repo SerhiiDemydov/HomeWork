@@ -20,12 +20,12 @@ class TestRegistration(unittest.TestCase):
     def test_same_user(self):
         name = "Serhii"
         psw = "safgas2fsa"
-        email = "dasdasfa@gmail.com"
+        email = "dasdasfa3@gmail.com"
         self.test_reg.new_user(name, psw, email)
 
         name1 = "Serhii"
         psw1 = "safgas2fsafsa"
-        email1 = "dasdasfa@gmail.com"
+        email1 = "dasdasfa3@gmail.com"
         with self.assertRaises(UserAlreadyRegistered):
             self.test_reg.new_user(name1, psw1, email1)
 
