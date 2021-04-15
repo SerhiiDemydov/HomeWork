@@ -23,11 +23,18 @@ class TestRegistration(unittest.TestCase):
         email = "dasdasfa3@gmail.com"
         self.test_reg.new_user(name, psw, email)
 
-        name1 = "Serhii"
+        name1 = "Max"
         psw1 = "safgas2fsafsa"
         email1 = "dasdasfa3@gmail.com"
         with self.assertRaises(UserAlreadyRegistered):
             self.test_reg.new_user(name1, psw1, email1)
+
+        name2 = "Serhii"
+        psw2 = "safgas2fsafsa"
+        email2 = "dasdasfa3@gmail.com"
+        with self.assertRaises(WrongPassword):
+            self.test_reg.new_user(name2, psw2, email2)
+
 
     def test_long_name(self):
         # Name must be 3-20 characters long
@@ -113,4 +120,22 @@ class TestRegistration(unittest.TestCase):
         psw2 = "safgagsdf"
         email2 = "dasdasf.43a@gmailbcom"
         with self.assertRaises(EmailIncorrect):
-            self.test_reg.new_user(name2, psw2, email2)
+             self.test_reg.new_user(name2, psw2, email2)
+
+        name3 = "Serhii"
+        psw3 = "safgagsdf"
+        email3 = "dasdasf43a@@@gmail.com"
+        with self.assertRaises(EmailIncorrect):
+            self.test_reg.new_user(name3, psw3, email3)
+
+    def test_autoris(self):
+        # Test autorisation
+        name = "Sam"
+        psw = "q1w2e3r4"
+        email = "sam195@gmail.com"
+        self.test_reg.new_user(name, psw, email)
+
+        name1 = "Sam"
+        psw1 = "q1w2e3r4"
+        email1 = "sam195@gmail.com"
+        self.test_reg.new_user(name1, psw1, email1)

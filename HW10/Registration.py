@@ -1,3 +1,5 @@
+import re
+
 class UserRegistration(Exception):
     pass
 
@@ -31,9 +33,13 @@ class EmailIncorrect(UserRegistration):
 class UserAlreadyRegistered(UserRegistration):
     pass
 
+class WrongPassword(UserRegistration):
+    pass
+
 
 class Registration:
-    all_users = {}
+    all_users_psw = {}
+    all_users_name = {}
 
     black_list = [' ', '/', '?', r'\\', '!', '|', '@', '#', '$', '%',
                   '^', '&', '*', '(', ')', '_', '-', '=', '+', '{', '}',
@@ -42,6 +48,8 @@ class Registration:
     black_list_email = [' ', '/', '?', r'\\', '!', '|', '#', '$', '%',
                         '^', '&', '*', '(', ')', '_', '-', '=', '+', '{', '}',
                         '[', ']', ',', '<', '>']
+
+    regex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
 
     # should_list_items_email = ['@', '.']
 
@@ -63,11 +71,10 @@ class Registration:
             raise EmailItemError('Forbidden symbol used in email')
         if self.email_should_item_check(user_email) is False:
             raise EmailIncorrect('Email is incorrect')
-        if user_email in self.all_users.keys():
-            raise UserAlreadyRegistered('This e-mail is already registered')
-        else:
-            self.all_users.update({user_email: user_psw})
-        print(self.all_users)
+        if self.autor_user(user_email, user_psw, user_name) is False:
+            self.all_users_psw.update({user_email: user_psw})
+            self.all_users_name.update({user_email: user_name})
+        print(self.all_users_psw)
         return 200
 
     def name_long_check(self, name):
@@ -104,10 +111,29 @@ class Registration:
                 return False
 
     def email_should_item_check(self, email):
-        x = False
-        for l in email:
-            if l == '@' or x == True:
-                x = True
-                if l == '.':
+        # if '@' in email and '.' in email:
+        #     return True
+        # x = False
+        # for l in email:
+        #     if l == '@' or x == True:
+        #         x = True
+        #         if l == '.':
+        #             return True
+        # return False
+        if re.search(self.regex, email):
+            return True
+        else:
+            return False
+
+    def autor_user(self, email, psw, name):
+        if email in self.all_users_psw.keys():
+            if name == self.all_users_name[email]:
+                if psw == self.all_users_psw[email]:
+                    print(f'Successful authorization')
                     return True
-        return False
+                else:
+                    raise WrongPassword('The wrong password used')
+            else:
+                raise UserAlreadyRegistered('This e-mail is already registered')
+        else:
+            return False
